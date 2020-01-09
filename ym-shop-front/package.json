@@ -2,7 +2,7 @@
   "name": "vue-node-mall",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "二次开发:Exrick 原:yucccc <13450003105@163.com>",
+  "author": "二次开发:bat.ke.qq.com 原:yucccc <13450003105@163.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

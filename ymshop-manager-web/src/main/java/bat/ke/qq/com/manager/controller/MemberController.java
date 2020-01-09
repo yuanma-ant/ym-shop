@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  *
- * @author Exrick
+ * @author bat.ke.qq.com
  * @date 2017/8/11
  */
 @RestController

@@ -13,7 +13,7 @@
     <artifactId>ymshop-content</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>ymshop-content-interface</module>
+        <module>ymshop-content-api</module>
         <module>ymshop-content-service</module>
     </modules>
 

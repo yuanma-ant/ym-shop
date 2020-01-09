@@ -62,7 +62,7 @@ CREATE TABLE `tb_base` (
 -- ----------------------------
 -- Records of tb_base
 -- ----------------------------
-INSERT INTO `tb_base` VALUES ('1', 'YMSHOP后台管理系统 v1.0', 'YMSHOP后台管理系统 v1.0,YMSHOP,YMSHOP购物商城后台管理系统', 'YMSHOP后台管理系统 v1.0，是一款电商后台管理系统，适合中小型CMS后台系统。', '', '', '', '', '0', 'test login notice', '0', 'test all notice', '', '', 'http://blog.exrick.cn');
+INSERT INTO `tb_base` VALUES ('1', 'YMSHOP后台管理系统 v1.0', 'YMSHOP后台管理系统 v1.0,YMSHOP,YMSHOP购物商城后台管理系统', 'YMSHOP后台管理系统 v1.0，是一款电商后台管理系统，适合中小型CMS后台系统。', '', '', '', '', '0', 'test login notice', '0', 'test all notice', '', '', 'http://bat.ke.qq.com');
 
 -- ----------------------------
 -- Table structure for tb_dict
@@ -78,7 +78,7 @@ CREATE TABLE `tb_dict` (
 -- ----------------------------
 -- Records of tb_dict
 -- ----------------------------
-INSERT INTO `tb_dict` VALUES ('1', 'Exrick', '1');
+INSERT INTO `tb_dict` VALUES ('1', 'bat.ke.qq.com', '1');
 INSERT INTO `tb_dict` VALUES ('2', 'YMSHOP', '1');
 INSERT INTO `tb_dict` VALUES ('4', 'test', '0');
 
@@ -1655,9 +1655,9 @@ INSERT INTO `tb_panel_content` VALUES ('55', '0', '1', null, '1', 'http://YMSHOP
 INSERT INTO `tb_panel_content` VALUES ('58', '0', '1', null, '2', 'http://YMSHOP.exrick.cn/#/thanks', '捐赠名单', null, null, '2018-07-27 20:50:07', '2018-07-27 22:25:18');
 INSERT INTO `tb_panel_content` VALUES ('59', '0', '0', null, '3', 'http://xmadmin.exrick.cn', '后台管理系统', null, null, '2018-07-27 22:25:44', '2018-07-27 22:26:54');
 INSERT INTO `tb_panel_content` VALUES ('60', '0', '0', null, '4', 'http://xpay.exrick.cn', 'XPay支付系统', null, null, '2018-07-27 22:26:03', '2018-07-27 22:26:50');
-INSERT INTO `tb_panel_content` VALUES ('61', '0', '0', null, '5', 'https://github.com/Exrick/x-boot', 'XBoot框架', null, null, '2018-07-27 22:26:21', '2018-07-27 22:26:47');
+INSERT INTO `tb_panel_content` VALUES ('61', '0', '0', null, '5', 'https://github.com/bat.ke.qq.com/x-boot', 'XBoot框架', null, null, '2018-07-27 22:26:21', '2018-07-27 22:26:47');
 INSERT INTO `tb_panel_content` VALUES ('62', '0', '0', null, '6', 'https://www.bilibili.com/video/av23121122/', '宣传视频', null, null, '2018-07-27 22:26:44', '2018-07-27 22:26:44');
-INSERT INTO `tb_panel_content` VALUES ('63', '0', '0', null, '7', 'https://github.com/Exrick/YMSHOP', 'Github', null, null, '2018-07-27 22:27:22', '2018-07-27 22:27:26');
+INSERT INTO `tb_panel_content` VALUES ('63', '0', '0', null, '7', 'https://github.com/bat.ke.qq.com/YMSHOP', 'Github', null, null, '2018-07-27 22:27:22', '2018-07-27 22:27:26');
 
 -- ----------------------------
 -- Table structure for tb_permission

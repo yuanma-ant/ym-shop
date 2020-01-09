@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 页面跳转
- * @author Exrick
+ * @author bat.ke.qq.com
  * @date 2017/7/30
  */
 @Controller

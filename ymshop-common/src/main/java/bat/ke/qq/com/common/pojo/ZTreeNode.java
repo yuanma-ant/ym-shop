@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Exrick
+ * @author bat.ke.qq.com
  * @date 2017/8/2
  */
 public class ZTreeNode implements Serializable {

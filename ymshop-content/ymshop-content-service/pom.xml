@@ -20,7 +20,7 @@
         </dependency>
         <dependency>
             <groupId>bat.ke.qq.com</groupId>
-            <artifactId>ymshop-content-interface</artifactId>
+            <artifactId>ymshop-content-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- Spring -->

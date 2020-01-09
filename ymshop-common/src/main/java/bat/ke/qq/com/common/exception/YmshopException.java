@@ -1,7 +1,7 @@
 package bat.ke.qq.com.common.exception;
 
 /**
- * @author Exrick
+ * @author bat.ke.qq.com
  * @date 2017/8/24
  */
 public class YmshopException extends RuntimeException {
