@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/member/*': {
-        target: 'http://127.0.0.1:7777'  // 请求本地 需要xmall后台项目 默认127.0.0.1:7777 
+        target: 'http://127.0.0.1:7778'  // 请求本地 需要xmall后台项目 默认127.0.0.1:7777
       },
       '/goods/*': {
         target: 'http://127.0.0.1:7777'  // 请求本地 需要xmall后台项目 默认127.0.0.1:7777

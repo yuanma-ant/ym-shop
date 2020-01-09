@@ -112,7 +112,7 @@
 
         <!--footer-->
         <div class="footer">
-            <p>&copy; 2017 YMSHOP. All rights reserved | Design by <a href="http://blog.exrick.cn" target="_blank">Exrick</a></p>
+            <p>&copy; 2017 YMSHOP. All rights reserved | Design by <a href="http://bat.ke.qq.com" target="_blank">bat.ke.qq.com</a></p>
         </div>
         <!--//footer-->
     </div>

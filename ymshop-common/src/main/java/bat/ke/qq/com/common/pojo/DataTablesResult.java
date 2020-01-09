@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Exrick on 2017/8/1.
+ * Created by bat.ke.qq.com on 2017/8/1.
  */
 public class DataTablesResult implements Serializable{
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author Exrick
+ * @author bat.ke.qq.com
  * @date 2017/8/2
  */
 @RestController

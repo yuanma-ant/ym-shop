@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Exrick">
+    <meta name="author" content="bat.ke.qq.com">
     <link rel="Shortcut Icon" href="icon/x.png" />
     <title>YMSHOP后台管理系统 v1.0</title>
     <meta name="keywords" content="YMSHOP后台管理系统 v1.0,YMSHOP,YMSHOP购物商城后台管理系统">

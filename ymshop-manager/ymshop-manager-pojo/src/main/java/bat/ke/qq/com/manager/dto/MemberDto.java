@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  *
- * @author Exrick
+ * @author bat.ke.qq.com
  * @date 2017/8/25
  */
 public class MemberDto implements Serializable{

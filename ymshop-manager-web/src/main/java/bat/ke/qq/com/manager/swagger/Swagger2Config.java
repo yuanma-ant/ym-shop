@@ -16,7 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Created by Exrick on 2017/8/15.
+ * Created by bat.ke.qq.com on 2017/8/15.
  */
 @Configuration  //让Spring来加载该类配置
 @EnableWebMvc   //非SpringBoot需启用
@@ -40,8 +40,8 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("YMSHOP Api Documentation")
                 .description("YMSHOP商城管理后台API接口文档")
-                .termsOfServiceUrl("http://blog.exrick.cn")
-                .contact(new Contact("Exrick", "http://blog.exrick.cn", "1012139570@qq.com"))
+                .termsOfServiceUrl("http://bat.ke.qq.com")
+                .contact(new Contact("bat.ke.qq.com", "http://bat.ke.qq.com", "1012139570@qq.com"))
                 .version("1.0.0")
                 .build();
     }

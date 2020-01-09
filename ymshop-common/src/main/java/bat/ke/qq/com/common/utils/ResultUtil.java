@@ -4,7 +4,7 @@ package bat.ke.qq.com.common.utils;
 import bat.ke.qq.com.common.pojo.Result;
 
 /**
- * @author Exrick
+ * @author bat.ke.qq.com
  * @date 2018/03/24
  */
 public class ResultUtil<T> {

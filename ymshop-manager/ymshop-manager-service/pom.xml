@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>bat.ke.qq.com</groupId>
-            <artifactId>ymshop-manager-interface</artifactId>
+            <artifactId>ymshop-manager-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- Spring -->

@@ -15,7 +15,7 @@
     <modules>
         <module>ymshop-manager-pojo</module>
         <module>ymshop-manager-dao</module>
-        <module>ymshop-manager-interface</module>
+        <module>ymshop-manager-api</module>
         <module>ymshop-manager-service</module>
     </modules>
 

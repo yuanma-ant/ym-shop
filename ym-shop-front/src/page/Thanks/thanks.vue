@@ -40,7 +40,7 @@
         </div>
       </y-shelf>
     </section>
-    
+
     <section class="w mt30 clearfix">
       <y-shelf :title="thankPanel.name">
         <div slot="content" class="hot">
@@ -97,7 +97,7 @@
       initGitment () {
         const gitment = new Gitment({
           id: '1',
-          owner: 'Exrick',
+          owner: 'bat.ke.qq.com',
           repo: 'xmall-comments',
           oauth: {
             client_id: 'd52e48ce99ee4e8fb412',
