@@ -10,7 +10,6 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2018-07-27 23:08:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
