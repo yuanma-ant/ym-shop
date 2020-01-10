@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="dialog dialog-shadow" style="display: block; margin-top: -362px;">
         <div class="title">
-          <h4>使用 XMall 账号 登录官网</h4>
+          <h4>使用 YMSHOP 账号 登录官网</h4>
         </div>
         <div v-if="loginPage" class="content">
           <ul class="common-form">

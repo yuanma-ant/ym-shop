@@ -1,0 +1,8 @@
+编译顺序
+ymshop-parent
+ymshop-common
+ymshop-manager
+ymshop-content
+ymshop-goods
+ymshop-manager-web
+ymshop-member
