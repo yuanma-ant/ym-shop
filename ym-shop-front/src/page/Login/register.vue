@@ -232,7 +232,7 @@ export default {
     overflow: visible;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     position: relative;
-    background-image: url(/static/images/smartisan_4ada7fecea.png);
+    background-image: url(/static/images/ymlogo3.png);
     background-size: 140px;
     background-position: top center;
     background-repeat: no-repeat;

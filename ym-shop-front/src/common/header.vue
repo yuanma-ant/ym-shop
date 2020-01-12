@@ -5,7 +5,7 @@
         <div class="w-box">
           <div class="nav-logo">
             <h1 @click="changePage(-1)">
-              <router-link to="/" title="XMall商城官网">XMall商城</router-link>
+              <router-link to="/" title="YMSHOP商城官网">YMSHOP商城</router-link>
             </h1>
           </div>
           <div class="right-box">
@@ -488,10 +488,10 @@
       display: flex;
       align-items: center;
       > a {
-        background: url(/static/images/global-logo-red@2x.png) no-repeat 50%;
+        background: url(/static/images/ymlogo1.png) no-repeat 50%;
         background-size: cover;
         display: block;
-        @include wh(50px, 40px);
+        @include wh(175px, 60px);
         text-indent: -9999px;
         background-position: 0 0;
       }

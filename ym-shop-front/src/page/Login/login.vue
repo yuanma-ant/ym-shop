@@ -25,7 +25,7 @@
             <li style="text-align: right" class="pr">
               <el-checkbox class="auto-login" v-model="autoLogin">记住密码</el-checkbox>
               <!-- <span class="pa" style="top: 0;left: 0;color: #d44d44">{{ruleForm.errMsg}}</span> -->
-              <a href="javascript:;" class="register" @click="toRegister">注册 XMall 账号</a>
+              <a href="javascript:;" class="register" @click="toRegister">注册 YMSHOP 账号</a>
               <a style="padding: 1px 0 0 10px" @click="open('找回密码','请联系作者邮箱找回密码或使用测试账号登录：test | test')">忘记密码 ?</a>
             </li>
           </ul>
@@ -271,7 +271,7 @@ export default {
     overflow: visible;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     position: relative;
-    background-image: url(/static/images/smartisan_4ada7fecea.png);
+    background-image: url(/static/images/ymlogo3.png);
     background-size: 140px;
     background-position: top center;
     background-repeat: no-repeat;

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    
+
   <div v-loading="loading" element-loading-text="加载中..." style="min-height: 35vw;" v-if="!error">
     <div class="banner" >
       <div class="bg" ref="bg"
@@ -60,17 +60,6 @@
         <br> 抱歉！出错了...
       </div>
     </div>
-
-    <el-dialog
-      title="通知"
-      :visible.sync="dialogVisible"
-      width="30%"
-      style="width:70%;margin:0 auto">
-      <span>首页已升级！XPay个人支付收款系统已上线，赶快去支付体验吧！</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dialogVisible = false">知道了</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 <script>
@@ -220,27 +209,27 @@
     opacity: 0;
   }
 
-  .page { 
-    position: absolute; 
+  .page {
+    position: absolute;
     width: 100%;
     top: 470px;
-    z-index: 30; 
+    z-index: 30;
     .dots {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      .dot-active { 
-        display: inline-block; 
-        width: 15px; 
-        height: 15px; 
-        background-color: whitesmoke; 
-        border-radius: 8px; 
-        margin-right: 10px; 
-        cursor: pointer; 
+      .dot-active {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background-color: whitesmoke;
+        border-radius: 8px;
+        margin-right: 10px;
+        cursor: pointer;
       }
-      .dot { 
-        opacity: 0.2; 
+      .dot {
+        opacity: 0.2;
       }
     }
   }
@@ -477,7 +466,7 @@
     align-items: center;
     .imgbanner {
       width: 50%;
-      height: 430px; 
+      height: 430px;
       .cover-link {
         cursor: pointer;
         display: block;
@@ -485,7 +474,7 @@
         top: 60px;
         left: 0;
         width: 50%;
-        height: 430px; 
+        height: 430px;
         z-index: 4;
         background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEHAAEALAAAAAABAAEAAAICTAEAOw==) repeat;
       }
