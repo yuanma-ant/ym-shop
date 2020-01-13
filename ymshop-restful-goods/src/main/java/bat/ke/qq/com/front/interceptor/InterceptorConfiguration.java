@@ -21,6 +21,6 @@ public class InterceptorConfiguration extends WebMvcConfigurerAdapter {
         // 注册拦截器
         InterceptorRegistration ir = registry.addInterceptor(limitRaterInterceptor);
         // 配置拦截的路径
-        ir.addPathPatterns("/**");
+//        ir.addPathPatterns("/**");
     }
 }

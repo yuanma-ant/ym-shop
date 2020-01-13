@@ -1,8 +1,11 @@
 package bat.ke.qq.com.front.controller;
 
+import bat.ke.qq.com.annotation.IgnoreAuth;
 import bat.ke.qq.com.common.jedis.JedisClient;
 import bat.ke.qq.com.common.pojo.GeetInit;
+import bat.ke.qq.com.common.utils.CookieUtil;
 import bat.ke.qq.com.common.utils.GeetestLib;
+import bat.ke.qq.com.intercepter.TokenIntercepter;
 import bat.ke.qq.com.manager.dto.front.CommonDto;
 import bat.ke.qq.com.manager.dto.front.MemberLoginRegist;
 import bat.ke.qq.com.common.pojo.Result;
@@ -19,7 +22,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -43,6 +48,7 @@ public class MemberController {
 
     @RequestMapping(value = "/member/geetestInit",method = RequestMethod.GET)
     @ApiOperation(value = "极验初始化")
+    @IgnoreAuth
     public String geetesrInit(HttpServletRequest request){
 
         GeetestLib gtSdk = new GeetestLib(GeetestLib.id, GeetestLib.key,GeetestLib.newfailback);
@@ -69,8 +75,9 @@ public class MemberController {
 
     @RequestMapping(value = "/member/login",method = RequestMethod.POST)
     @ApiOperation(value = "用户登录")
+    @IgnoreAuth
     public Result<Member> login(@RequestBody MemberLoginRegist memberLoginRegist,
-                                HttpServletRequest request){
+                                HttpServletRequest request, HttpServletResponse response){
 
         //极验验证
         GeetestLib gtSdk = new GeetestLib(GeetestLib.id, GeetestLib.key,GeetestLib.newfailback);
@@ -99,24 +106,27 @@ public class MemberController {
             System.out.println(gtResult);
         }
 
-        Member member=new Member();
+        Member member=loginService.userLogin(memberLoginRegist.getUserName(), memberLoginRegist.getUserPwd());
         //极验验证码需要收费，暂时移除：
 //        if (gtResult == 1) {
             // 验证成功
-            member=loginService.userLogin(memberLoginRegist.getUserName(), memberLoginRegist.getUserPwd());
+//            member=loginService.userLogin(memberLoginRegist.getUserName(), memberLoginRegist.getUserPwd());
 //        }
 //        else {
 //            // 验证失败
 //            member.setState(0);
 //            member.setMessage("验证失败");
 //        }
+//        登录成功写入cookies
+        Cookie cookie= CookieUtil.genCookie(TokenIntercepter.ACCESS_TOKEN,member.getToken(),"/",24*60*60);
+        response.addCookie(cookie);
         return new ResultUtil<Member>().setData(member);
     }
 
     @RequestMapping(value = "/member/checkLogin",method = RequestMethod.GET)
     @ApiOperation(value = "判断用户是否登录")
+    @IgnoreAuth
     public Result<Member> checkLogin(@RequestParam(defaultValue = "") String token){
-        System.out.println("111");
         Member member=loginService.getUserByToken(token);
         return new ResultUtil<Member>().setData(member);
     }
@@ -131,6 +141,7 @@ public class MemberController {
 
     @RequestMapping(value = "/member/register",method = RequestMethod.POST)
     @ApiOperation(value = "用户注册")
+    @IgnoreAuth
     public Result<Object> register(@RequestBody MemberLoginRegist memberLoginRegist,
                                    HttpServletRequest request){
 

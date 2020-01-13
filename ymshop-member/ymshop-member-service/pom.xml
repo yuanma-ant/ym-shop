@@ -74,7 +74,6 @@
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

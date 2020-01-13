@@ -119,7 +119,7 @@
         </dependency>
         <dependency>
             <groupId>bat.ke.qq.com</groupId>
-            <artifactId>ymshop-search-interface</artifactId>
+            <artifactId>ymshop-goods-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- Hutool工具包 -->

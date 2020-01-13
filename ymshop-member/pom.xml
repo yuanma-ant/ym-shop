@@ -15,6 +15,7 @@
     <modules>
         <module>ymshop-member-api</module>
         <module>ymshop-member-service</module>
+        <module>ymshop-member-sdk</module>
     </modules>
     <dependencies>
         <dependency>

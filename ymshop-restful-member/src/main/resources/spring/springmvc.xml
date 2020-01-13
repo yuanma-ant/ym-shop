@@ -9,7 +9,7 @@
     http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-    <context:component-scan base-package="bat.ke.qq.com.front" />
+    <context:component-scan base-package="bat.ke.qq.com" />
 
     <context:property-placeholder location="classpath:conf/*.properties"/>
 
@@ -36,7 +36,7 @@
     <mvc:resources mapping="/swagger/**" location="/swagger/"/>
 
     <!-- 引用dubbo服务 -->
-    <dubbo:application name="ymshop-member-goods"/>
+    <dubbo:application name="ymshop-restful-member"/>
     <dubbo:registry protocol="zookeeper" address="${zookeeper_address}"/>
     <dubbo:reference interface="bat.ke.qq.com.content.service.ContentService" id="contentService" />
     <dubbo:reference interface="bat.ke.qq.com.search.service.SearchService" id="searchService" />

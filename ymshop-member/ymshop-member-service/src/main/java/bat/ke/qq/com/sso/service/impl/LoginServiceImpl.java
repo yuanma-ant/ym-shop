@@ -2,6 +2,7 @@ package bat.ke.qq.com.sso.service.impl;
 
 
 import bat.ke.qq.com.common.jedis.JedisClient;
+import bat.ke.qq.com.common.utils.CookieUtil;
 import bat.ke.qq.com.manager.dto.DtoUtil;
 import bat.ke.qq.com.manager.dto.front.Member;
 import bat.ke.qq.com.manager.mapper.TbMemberMapper;
@@ -56,10 +57,10 @@ public class LoginServiceImpl implements LoginService {
 		Member member= DtoUtil.TbMemer2Member(tbMember);
 		member.setToken(token);
 		member.setState(1);
+		//将token写入cookies中
 		// 用户信息写入redis：key："SESSION:token" value："user"
 		jedisClient.set("SESSION:" + token, new Gson().toJson(member));
 		jedisClient.expire("SESSION:" + token, SESSION_EXPIRE);
-
 		return member;
 	}
 
