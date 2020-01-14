@@ -2,6 +2,7 @@ package bat.ke.qq.com.front.controller;
 
 import bat.ke.qq.com.common.pojo.Result;
 import bat.ke.qq.com.common.utils.ResultUtil;
+import bat.ke.qq.com.intercepter.MemberUtils;
 import bat.ke.qq.com.manager.dto.front.Order;
 import bat.ke.qq.com.manager.dto.front.OrderInfo;
 import bat.ke.qq.com.manager.dto.front.PageOrder;
@@ -29,14 +30,15 @@ public class OrderController {
                                           @RequestParam(defaultValue = "1") int page,
                                           @RequestParam(defaultValue = "5") int size){
 
-        PageOrder pageOrder=orderService.getOrderList(Long.valueOf(userId), page, size);
+        PageOrder pageOrder=orderService.getOrderList(Long.valueOf(MemberUtils.getUserId()), page, size);
         return new ResultUtil<PageOrder>().setData(pageOrder);
     }
 
     @RequestMapping(value = "/member/orderDetail",method = RequestMethod.GET)
     @ApiOperation(value = "通过id获取订单")
     public Result<Order> getOrder(String orderId){
-
+        //todo ant 订单查询权限漏洞    需要根据当前用户校验查询对应订单号是否有权限
+//        MemberUtils.getUserId()
         Order order=orderService.getOrder(Long.valueOf(orderId));
         return new ResultUtil<Order>().setData(order);
     }

@@ -13,13 +13,25 @@
 
     <context:property-placeholder location="classpath:conf/*.properties"/>
 
-    <!-- 连接单机版 -->
+    <!-- 连接redis单机版 -->
     <bean id="jedisClientPool" class="bat.ke.qq.com.common.jedis.JedisClientPool">
         <property name="jedisPool" ref="jedisPool"></property>
     </bean>
     <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-        <constructor-arg name="host" value="193.112.53.149"/>
-        <constructor-arg name="port" value="6379"/>
+        <constructor-arg name="host" value="${redis_host}"/>
+        <constructor-arg name="port" value="${redis_port}"/>
+        <constructor-arg name="password" value="${redis.password}"></constructor-arg>
+        <constructor-arg name="timeout" value="${redis.timeout}"></constructor-arg>
+        <constructor-arg name="database" value="${redis.database}"></constructor-arg>
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
+    </bean>
+
+    <bean class="redis.clients.jedis.JedisPoolConfig" id="jedisPoolConfig">
+        <property name="maxIdle" value="${maxIdle}" />
+        <property name="maxTotal" value="${maxActive}" />
+        <property name="maxWaitMillis" value="${maxWait}" />
+        <property name="testOnBorrow" value="${testOnBorrow}" />
+        <property name="blockWhenExhausted" value="${blockWhenExhausted}" />
     </bean>
 
     <!-- 配置多媒体解析器 -->
