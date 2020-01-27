@@ -11,45 +11,8 @@ public class MemberLoginRegist implements Serializable {
 
     private String userPwd;
 
-    private String challenge;
+    private String captcha;
 
-    private String validate;
-
-    private String seccode;
-
-    private String statusKey;
-
-    public String getStatusKey() {
-        return statusKey;
-    }
-
-    public void setStatusKey(String statusKey) {
-        this.statusKey = statusKey;
-    }
-
-    public String getChallenge() {
-        return challenge;
-    }
-
-    public void setChallenge(String challenge) {
-        this.challenge = challenge;
-    }
-
-    public String getValidate() {
-        return validate;
-    }
-
-    public void setValidate(String validate) {
-        this.validate = validate;
-    }
-
-    public String getSeccode() {
-        return seccode;
-    }
-
-    public void setSeccode(String seccode) {
-        this.seccode = seccode;
-    }
 
     public String getUserName() {
         return userName;
@@ -65,5 +28,13 @@ public class MemberLoginRegist implements Serializable {
 
     public void setUserPwd(String userPwd) {
         this.userPwd = userPwd;
+    }
+
+    public String getCaptcha() {
+        return captcha;
+    }
+
+    public void setCaptcha(String captcha) {
+        this.captcha = captcha;
     }
 }

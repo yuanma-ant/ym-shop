@@ -59,4 +59,5 @@
     <dubbo:reference interface="bat.ke.qq.com.sso.service.AddressService" id="addressService" />
     <dubbo:reference interface="bat.ke.qq.com.sso.service.MemberService" id="memberService" />
     <dubbo:reference interface="bat.ke.qq.com.manager.service.ThanksService" id="thanksService" />
+    <dubbo:reference interface="bat.ke.qq.com.sso.service.CaptchaService" id="captchaService" />
 </beans>

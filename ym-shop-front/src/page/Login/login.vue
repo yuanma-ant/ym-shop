@@ -18,8 +18,10 @@
               </div>
             </li>
             <li>
-              <div id="captcha">
-                <p id="wait">正在加载验证码...</p>
+              <div class="input">
+                 <input type="text" v-model="ruleForm.captcha" placeholder="验证码"/>
+                 &nbsp;&nbsp;&nbsp;
+                 <img id="imageCode" :src="imageCode" @click="init_geetest()"/>
               </div>
             </li>
             <li style="text-align: right" class="pr">
@@ -69,6 +71,7 @@ export default {
       ruleForm: {
         userName: '',
         userPwd: '',
+        captcha: '',
         errMsg: ''
       },
       registered: {
@@ -79,7 +82,8 @@ export default {
       },
       autoLogin: false,
       logintxt: '登录',
-      statusKey: ''
+      statusKey: '',
+      imageCode: ''
     }
   },
   computed: {
@@ -154,17 +158,19 @@ export default {
       if (!this.ruleForm.userName || !this.ruleForm.userPwd) {
         // this.ruleForm.errMsg = '账号或者密码不能为空!'
         this.message('账号或者密码不能为空!')
+        this.logintxt = '登录'
         return false
       }
-      var result = captcha.getValidate()
 
+      if (!this.ruleForm.captcha) {
+        this.message('请输入验证码!')
+        this.logintxt = '登录'
+        return false
+      }
       var params = {
         userName: this.ruleForm.userName,
         userPwd: this.ruleForm.userPwd,
-        challenge: result.geetest_challenge,
-        validate: result.geetest_validate,
-        seccode: result.geetest_seccode,
-        statusKey: this.statusKey
+        captcha: this.ruleForm.captcha
       }
       userLogin(params).then(res => {
         if (res.result.state === 1) {
@@ -197,21 +203,7 @@ export default {
     },
     init_geetest () {
       geetest().then(res => {
-        this.statusKey = res.statusKey
-        window.initGeetest({
-          gt: res.gt,
-          challenge: res.challenge,
-          new_captcha: res.new_captcha,
-          offline: !res.success,
-          product: 'popup',
-          width: '100%'
-        }, function (captchaObj) {
-          captcha = captchaObj
-          captchaObj.appendTo('#captcha')
-          captchaObj.onReady(function () {
-            document.getElementById('wait').style.display = 'none'
-          })
-        })
+        this.imageCode = 'data:image/gif;base64,' + res.result
       })
     }
   },

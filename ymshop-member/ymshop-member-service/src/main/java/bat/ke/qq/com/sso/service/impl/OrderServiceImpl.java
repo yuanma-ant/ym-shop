@@ -206,6 +206,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    //todo ant 事务   分布式锁  扣库存
     public Long createOrder(OrderInfo orderInfo) {
 
         TbMember member=tbMemberMapper.selectByPrimaryKey(Long.valueOf(orderInfo.getUserId()));
@@ -247,6 +248,8 @@ public class OrderServiceImpl implements OrderService {
                 throw new YmshopException("生成订单商品失败");
             }
 
+            //todo ant 扣减库存
+
             //删除购物车中含该订单的商品
             try{
                 List<String> jsonList = jedisClient.hvals(CART_PRE + ":" + orderInfo.getUserId());
@@ -278,6 +281,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    //todo ant 事务
     public int delOrder(Long orderId) {
 
         if(tbOrderMapper.deleteByPrimaryKey(String.valueOf(orderId))!=1){

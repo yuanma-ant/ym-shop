@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="container">
       <div class="copyright">
-        <h4 class="content-c2-v1">本站仅用于学习交流使用，前端框架是在 XMALL 基础之上做的重构，在此表示感谢</h4>
+        <h4 class="content-c2-v1">本站仅用于学习交流使用</h4>
       </div>
     </div>
   </div>

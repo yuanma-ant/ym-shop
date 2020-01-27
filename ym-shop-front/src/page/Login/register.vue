@@ -28,10 +28,12 @@
                 </div>
               </li>
               <li>
-                <div id="captcha">
-                  <p id="wait">正在加载验证码...</p>
-                </div>
-              </li>
+              <div class="input">
+                 <input type="text" v-model="ruleForm.captcha" placeholder="验证码"/>
+                 &nbsp;&nbsp;&nbsp;
+                 <img id="imageCode" :src="imageCode" @click="init_geetest()"/>
+              </div>
+            </li>
             </ul>
             <el-checkbox class="agree" v-model="agreement">
               我已阅读并同意遵守
@@ -88,7 +90,8 @@ export default {
       },
       agreement: false,
       registxt: '注册',
-      statusKey: ''
+      statusKey: '',
+      imageCode: ''
     }
   },
   computed: {
@@ -139,15 +142,11 @@ export default {
         this.registxt = '注册'
         return false
       }
-      var result = captcha.getValidate()
 
       register({
         userName,
         userPwd,
-        challenge: result.geetest_challenge,
-        validate: result.geetest_validate,
-        seccode: result.geetest_seccode,
-        statusKey: this.statusKey }).then(res => {
+        captcha: this.ruleForm.captcha}).then(res => {
           if (res.success === true) {
             this.messageSuccess()
             this.toLogin()
@@ -161,21 +160,7 @@ export default {
     },
     init_geetest () {
       geetest().then(res => {
-        this.statusKey = res.statusKey
-        window.initGeetest({
-          gt: res.gt,
-          challenge: res.challenge,
-          new_captcha: res.new_captcha,
-          offline: !res.success,
-          product: 'popup',
-          width: '100%'
-        }, function (captchaObj) {
-          captcha = captchaObj
-          captchaObj.appendTo('#captcha')
-          captchaObj.onReady(function () {
-            document.getElementById('wait').style.display = 'none'
-          })
-        })
+        this.imageCode = 'data:image/gif;base64,' + res.result
       })
     }
   },

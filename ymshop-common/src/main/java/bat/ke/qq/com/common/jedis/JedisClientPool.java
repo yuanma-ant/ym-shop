@@ -1,6 +1,7 @@
 package bat.ke.qq.com.common.jedis;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;

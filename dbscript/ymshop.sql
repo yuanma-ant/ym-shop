@@ -1469,8 +1469,8 @@ INSERT INTO `tb_member` VALUES ('62', 'test', '098f6bcd4621d373cade4e832627b4f6'
 INSERT INTO `tb_member` VALUES ('63', 'admin', '21232f297a57a5a743894a0e4a801fc3', null, null, '2017-09-05 21:27:54', '2018-04-18 14:43:32', null, null, '2', 'http://ow2h3ee9w.bkt.clouddn.com/1507875078112.png', null, null, null);
 INSERT INTO `tb_member` VALUES ('64', 'xhy', '21232f297a57a5a743894a0e4a801fc3', null, null, '2017-09-05 21:27:54', '2018-04-18 14:43:33', null, null, '2', null, null, null, null);
 INSERT INTO `tb_member` VALUES ('65', 'xhy1', '202cb962ac59075b964b07152d234b70', null, null, '2017-09-05 21:27:54', '2017-10-17 21:21:32', null, null, '0', '', null, null, null);
-INSERT INTO `tb_member` VALUES ('66', 'ant', '202cb962ac59075b964b07152d234b70', null, null, '2017-09-05 21:27:54', '2017-10-17 21:21:32', null, null, '1', '', null, null, null);
-INSERT INTO `tb_member` VALUES ('67', 'monkey', '202cb962ac59075b964b07152d234b70', null, null, '2017-09-05 21:27:54', '2017-10-17 21:21:32', null, null, '1', '', null, null, null);
+INSERT INTO `tb_member` VALUES ('66', 'ant', '098f6bcd4621d373cade4e832627b4f6', null, null, '2017-09-05 21:27:54', '2017-10-17 21:21:32', null, null, '1', '', null, null, null);
+INSERT INTO `tb_member` VALUES ('67', 'monkey', '098f6bcd4621d373cade4e832627b4f6', null, null, '2017-09-05 21:27:54', '2017-10-17 21:21:32', null, null, '1', '', null, null, null);
 
 -- ----------------------------
 -- Table structure for tb_order
@@ -1527,7 +1527,7 @@ CREATE TABLE `tb_order_item` (
 -- ----------------------------
 -- Records of tb_order_item
 -- ----------------------------
-INSERT INTO `tb_order_item` VALUES ('150787555927880', '150642571432835', '150787555927616', '1', '捐赠商品', '1.00', '1.00', 'http://ow2h3ee9w.bkt.clouddn.com/FgwHSk1Rnd-8FKqNJhFSSdcq2QVB');
+INSERT INTO `tb_order_item` VALUES ('150787555927880', '150642571432835', '150787555927616', '1', '测试商品', '1.00', '1.00', 'http://ow2h3ee9w.bkt.clouddn.com/FgwHSk1Rnd-8FKqNJhFSSdcq2QVB');
 
 -- ----------------------------
 -- Table structure for tb_order_shipping

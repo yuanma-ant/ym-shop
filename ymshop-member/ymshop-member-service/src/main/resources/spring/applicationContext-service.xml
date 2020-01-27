@@ -24,4 +24,5 @@
     <dubbo:service interface="bat.ke.qq.com.sso.service.OrderService" ref="orderServiceImpl" timeout="10000"/>
     <dubbo:service interface="bat.ke.qq.com.sso.service.AddressService" ref="addressServiceImpl" timeout="10000"/>
     <dubbo:service interface="bat.ke.qq.com.sso.service.MemberService" ref="memberServiceImpl" timeout="10000"/>
+    <dubbo:service interface="bat.ke.qq.com.sso.service.CaptchaService" ref="captchaServiceImpl" timeout="10000"/>
 </beans>
