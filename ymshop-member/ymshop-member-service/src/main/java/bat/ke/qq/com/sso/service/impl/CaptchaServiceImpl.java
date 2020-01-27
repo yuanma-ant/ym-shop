@@ -21,7 +21,7 @@ public class CaptchaServiceImpl implements CaptchaService {
     @Autowired
     private JedisClient jedisClient;
 
-    private final String CAPTCHA_UUID="kaptcha_uuid";
+    public static final String CAPTCHA_UUID="captcha_uuid";
 
 
     @Override

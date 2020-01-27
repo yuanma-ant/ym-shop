@@ -54,15 +54,15 @@ public class MemberController {
     private CaptchaService captchaService;
 
     @RequestMapping(value = "/member/geetestInit",method = RequestMethod.GET)
-    @ApiOperation(value = "极验初始化")
+    @ApiOperation(value = "验证码初始化")
     @IgnoreAuth
     public Result<String> geetesrInit(HttpServletRequest request,HttpServletResponse response){
         CaptchaCodeRequest captchaCodeRequest=new CaptchaCodeRequest();
-        CaptchaCodeResponse kaptchaCodeResponse=captchaService.getCaptchaCode(captchaCodeRequest);
-        if(kaptchaCodeResponse!=null){
-            Cookie cookie=CookieUtil.genCookie("kaptcha_uuid",kaptchaCodeResponse.getUuid(),"/",60);
+        CaptchaCodeResponse captchaCodeResponse=captchaService.getCaptchaCode(captchaCodeRequest);
+        if(captchaCodeResponse!=null){
+            Cookie cookie=CookieUtil.genCookie("captcha_uuid",captchaCodeResponse.getUuid(),"/",60);
             response.addCookie(cookie);
-            return new ResultUtil<String>().setData(kaptchaCodeResponse.getImageCode());
+            return new ResultUtil<String>().setData(captchaCodeResponse.getImageCode());
         }
         return new ResultUtil<String>().setErrorMsg("获取验证码失败");
     }
