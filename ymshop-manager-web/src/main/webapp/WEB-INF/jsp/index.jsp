@@ -90,6 +90,7 @@
                 <ul>
                     <li><a data-href="product-category" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
                     <li><a data-href="product-list" data-title="商品列表" href="javascript:void(0)">商品列表</a></li>
+                    <li><a data-href="seckill-list" data-title="秒杀活动" href="javascript:void(0)">秒杀活动</a></li>
                 </ul>
             </dd>
         </dl>

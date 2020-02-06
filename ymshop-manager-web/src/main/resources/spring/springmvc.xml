@@ -142,4 +142,5 @@
     <dubbo:reference interface="bat.ke.qq.com.manager.service.DictService" id="dictService"/>
     <dubbo:reference interface="bat.ke.qq.com.manager.service.ExpressService" id="expressService"/>
     <dubbo:reference interface="bat.ke.qq.com.manager.service.CountService" id="countService"/>
+    <dubbo:reference interface="bat.ke.qq.com.manager.service.SeckillService" id="seckillService"/>
 </beans>

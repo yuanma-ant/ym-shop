@@ -5,8 +5,11 @@ import bat.ke.qq.com.manager.dto.front.CartProduct;
 import bat.ke.qq.com.manager.dto.front.Member;
 import bat.ke.qq.com.manager.dto.front.Product;
 import bat.ke.qq.com.manager.pojo.*;
+import cn.hutool.core.date.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Date;
 
 
 /**
@@ -85,6 +88,18 @@ public class DtoUtil{
         }
 
         return itemDto;
+    }
+
+    public static TbSeckill seckillDto2TbSeckill(SeckillDto seckillDto){
+        TbSeckill tbSeckill =new TbSeckill();
+        tbSeckill.setItemId(seckillDto.getProductId());
+        tbSeckill.setSeckillDesc(seckillDto.getDesc());
+        tbSeckill.setSeckillPrice(seckillDto.getPrice());
+        tbSeckill.setSeckillStock(seckillDto.getNum());
+        tbSeckill.setStartdate(DateUtil.parse(seckillDto.getStartDate(),"yyyy-MM-dd hh:mm:ss"));
+        tbSeckill.setEnddate(DateUtil.parse(seckillDto.getEndDate(),"yyyy-MM-dd hh:mm:ss"));
+        tbSeckill.setCreated(new Date());
+        return tbSeckill;
     }
 
 

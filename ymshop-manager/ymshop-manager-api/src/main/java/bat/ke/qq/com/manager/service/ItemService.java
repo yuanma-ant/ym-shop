@@ -3,6 +3,9 @@ package bat.ke.qq.com.manager.service;
 import bat.ke.qq.com.manager.dto.ItemDto;
 import bat.ke.qq.com.common.pojo.DataTablesResult;
 import bat.ke.qq.com.manager.pojo.TbItem;
+import freemarker.template.TemplateException;
+
+import java.io.IOException;
 
 
 /**
@@ -91,4 +94,10 @@ public interface ItemService {
      * @return
      */
     TbItem updateItem(Long id,ItemDto itemDto);
+    /**
+     * 静态化商品详情页
+     * @param id
+     * @return
+     */
+    String toStatic(Long id);
 }

@@ -35,4 +35,5 @@
     <dubbo:service interface="bat.ke.qq.com.manager.service.DictService" ref="dictServiceImpl" timeout="10000"/>
     <dubbo:service interface="bat.ke.qq.com.manager.service.ExpressService" ref="expressServiceImpl" timeout="10000"/>
     <dubbo:service interface="bat.ke.qq.com.manager.service.CountService" ref="countServiceImpl" timeout="10000"/>
+    <dubbo:service interface="bat.ke.qq.com.manager.service.SeckillService" ref="seckillServiceImpl" timeout="10000"/>
 </beans>

@@ -172,7 +172,7 @@
                     "data": null,
                     render: function (data, type, row, meta) {
                         if (row.status == 1) {
-                            return "<a style=\"text-decoration:none\" onClick=\"product_stop(this,"+row.id+")\" href=\"javascript:;\" title=\"下架\"><i class=\"Hui-iconfont\">&#xe6de;</i></a> <a style=\"text-decoration:none\" class=\"ml-5\" onClick=\"product_edit('商品编辑','product-edit',"+row.id+")\" href=\"javascript:;\" title=\"编辑\"><i class=\"Hui-iconfont\">&#xe6df;</i></a> <a style=\"text-decoration:none\" class=\"ml-5\" onClick=\"product_del(this,"+row.id+")\" href=\"javascript:;\" title=\"删除\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a>";
+                            return "<a style=\"text-decoration:none\" onClick=\"product_stop(this,"+row.id+")\" href=\"javascript:;\" title=\"下架\"><i class=\"Hui-iconfont\">&#xe6de;</i></a> <a style=\"text-decoration:none\" class=\"ml-5\" onClick=\"product_edit('商品编辑','product-edit',"+row.id+")\" href=\"javascript:;\" title=\"编辑\"><i class=\"Hui-iconfont\">&#xe6df;</i></a> <a style=\"text-decoration:none\" class=\"ml-5\" onClick=\"product_del(this,"+row.id+")\" href=\"javascript:;\" title=\"删除\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a><a style=\"text-decoration:none\" class=\"ml-5\" onClick=\"product_static(this,"+row.id+")\" href=\"javascript:;\" title=\"静态化\"><i class=\"Hui-iconfont\">&#xe72d;</i></a>";
                         } else {
                             return "<a style=\"text-decoration:none\" onClick=\"product_start(this,"+row.id+")\" href=\"javascript:;\" title=\"发布\"><i class=\"Hui-iconfont\">&#xe603;</i></a> <a style=\"text-decoration:none\" class=\"ml-5\" onClick=\"product_edit('商品编辑','product-edit',"+row.id+")\" href=\"javascript:;\" title=\"编辑\"><i class=\"Hui-iconfont\">&#xe6df;</i></a> <a style=\"text-decoration:none\" class=\"ml-5\" onClick=\"product_del(this,"+row.id+")\" href=\"javascript:;\" title=\"删除\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a>";
                         }
@@ -400,6 +400,32 @@
                     productCount();
                     refresh();
                     layer.msg('已删除!',{icon:1,time:1000});
+                },
+                error:function(XMLHttpRequest) {
+                    layer.close(index);
+                    layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status,{title: '错误信息',icon: 2});
+                },
+            });
+        });
+    }
+
+    /*产品-静态化*/
+    function product_static(obj,id){
+        layer.confirm('确认要静态化ID为\''+id+'\'的商品吗？',{icon:0},function(index){
+            var index = layer.load(3);
+            $.ajax({
+                type: 'DELETE',
+                url: '/item/static/'+id,
+                dataType: 'json',
+                success: function(data){
+                    layer.close(index);
+                    if(data.success!=true){
+                        layer.alert(data.message,{title: '错误信息',icon: 2});
+                        return;
+                    }
+                    productCount();
+                    refresh();
+                    layer.msg('静态化完成!',{icon:1,time:1000});
                 },
                 error:function(XMLHttpRequest) {
                     layer.close(index);

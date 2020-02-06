@@ -10,6 +10,7 @@ import bat.ke.qq.com.manager.service.ItemService;
 import bat.ke.qq.com.search.service.SearchItemService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,6 +100,7 @@ public class ItemController{
         return new ResultUtil<TbItem>().setData(tbItem);
     }
 
+
     @RequestMapping(value = "/item/start/{id}",method = RequestMethod.PUT)
     @ApiOperation(value = "发布商品")
     public Result<TbItem> startItem(@PathVariable Long id){
@@ -147,6 +149,17 @@ public class ItemController{
 
         EsInfo esInfo=searchItemService.getEsInfo();
         return new ResultUtil<Object>().setData(esInfo);
+    }
+
+    @RequestMapping(value = "/item/static/{id}",method = RequestMethod.DELETE)
+    @ApiOperation(value = "静态化商品")
+    public Result<String> buildStatic(@PathVariable Long id){
+
+        String path = itemService.toStatic(id);
+        if(StringUtils.isEmpty(path)){
+            return new ResultUtil<String>().setErrorMsg("静态化商品页面出现异常");
+        }
+        return new ResultUtil<String>().setData(path);
     }
 
 }
