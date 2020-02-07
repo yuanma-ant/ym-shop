@@ -1,6 +1,7 @@
 package bat.ke.qq.com.front.controller;
 
 import bat.ke.qq.com.common.pojo.Result;
+import bat.ke.qq.com.common.utils.CheckUtil;
 import bat.ke.qq.com.common.utils.ResultUtil;
 import bat.ke.qq.com.manager.pojo.TbAddress;
 import bat.ke.qq.com.sso.service.AddressService;
@@ -24,43 +25,47 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
-    @RequestMapping(value = "/member/addressList",method = RequestMethod.POST)
+    @RequestMapping(value = "/member/addressList", method = RequestMethod.POST)
     @ApiOperation(value = "获得所有收货地址")
-    public Result<List<TbAddress>> addressList(@RequestBody TbAddress tbAddress){
+    public Result<List<TbAddress>> addressList(@RequestBody TbAddress tbAddress) {
 
-        List<TbAddress> list=addressService.getAddressList(tbAddress.getUserId());
+        List<TbAddress> list = addressService.getAddressList(tbAddress.getUserId());
         return new ResultUtil<List<TbAddress>>().setData(list);
     }
 
-    @RequestMapping(value = "/member/address",method = RequestMethod.POST)
+    @RequestMapping(value = "/member/address", method = RequestMethod.POST)
     @ApiOperation(value = "通过id获得收货地址")
-    public Result<TbAddress> address(@RequestBody TbAddress tbAddress){
+    public Result<TbAddress> address(@RequestBody TbAddress tbAddress) {
 
-        TbAddress address=addressService.getAddress(tbAddress.getAddressId());
+        TbAddress address = addressService.getAddress(tbAddress.getAddressId());
         return new ResultUtil<TbAddress>().setData(address);
     }
 
-    @RequestMapping(value = "/member/addAddress",method = RequestMethod.POST)
+    @RequestMapping(value = "/member/addAddress", method = RequestMethod.POST)
     @ApiOperation(value = "添加收货地址")
-    public Result<Object> addAddress(@RequestBody TbAddress tbAddress){
-
-        int result=addressService.addAddress(tbAddress);
+    public Result<Object> addAddress(@RequestBody TbAddress tbAddress) {
+        if (!CheckUtil.isMobile(tbAddress.getTel())) {
+            return new ResultUtil<Object>().setErrorMsg("请输入合法的手机号");
+        }
+        int result = addressService.addAddress(tbAddress);
         return new ResultUtil<Object>().setData(result);
     }
 
-    @RequestMapping(value = "/member/updateAddress",method = RequestMethod.POST)
+    @RequestMapping(value = "/member/updateAddress", method = RequestMethod.POST)
     @ApiOperation(value = "编辑收货地址")
-    public Result<Object> updateAddress(@RequestBody TbAddress tbAddress){
-
-        int result=addressService.updateAddress(tbAddress);
+    public Result<Object> updateAddress(@RequestBody TbAddress tbAddress) {
+        if (!CheckUtil.isMobile(tbAddress.getTel())) {
+            new ResultUtil<Object>().setErrorMsg("请输入合法的手机号");
+        }
+        int result = addressService.updateAddress(tbAddress);
         return new ResultUtil<Object>().setData(result);
     }
 
-    @RequestMapping(value = "/member/delAddress",method = RequestMethod.POST)
+    @RequestMapping(value = "/member/delAddress", method = RequestMethod.POST)
     @ApiOperation(value = "删除收货地址")
-    public Result<Object> delAddress(@RequestBody TbAddress tbAddress){
+    public Result<Object> delAddress(@RequestBody TbAddress tbAddress) {
 
-        int result=addressService.delAddress(tbAddress);
+        int result = addressService.delAddress(tbAddress);
         return new ResultUtil<Object>().setData(result);
     }
 }
