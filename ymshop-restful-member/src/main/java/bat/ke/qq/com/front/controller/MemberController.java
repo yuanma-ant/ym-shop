@@ -74,7 +74,7 @@ public class MemberController {
                                 HttpServletRequest request, HttpServletResponse response){
 
         CaptchaCodeRequest captchaCodeRequest = new CaptchaCodeRequest();
-        String uuid = CookieUtil.getCookieValue(request, "kaptcha_uuid");
+        String uuid = CookieUtil.getCookieValue(request, "captcha_uuid");
         captchaCodeRequest.setCode(memberLoginRegist.getCaptcha());
         captchaCodeRequest.setUuid(uuid);
         boolean validate = captchaService.validateCaptchaCode(captchaCodeRequest);

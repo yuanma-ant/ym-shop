@@ -1958,3 +1958,7 @@ CREATE TABLE `tb_user` (
 -- ----------------------------
 INSERT INTO `tb_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '17621230884', '1012139570@qq.com', '男', null, '1', '超级管理员', '1', 'http://ow2h3ee9w.bkt.clouddn.com/1507866340369.png', '2017-09-05 21:27:54', '2017-10-18 22:57:08');
 INSERT INTO `tb_user` VALUES ('2', 'test', '098f6bcd4621d373cade4e832627b4f6', '12345678901', '123@qq.com', '女', null, '1', '游客', '0', null, '2017-09-05 21:27:54', '2018-04-18 14:35:19');
+
+-- ----------------------------
+-- Table structure for tb_seckill
+-- ----------------------------
