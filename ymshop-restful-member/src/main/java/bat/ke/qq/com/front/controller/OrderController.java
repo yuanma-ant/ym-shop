@@ -3,6 +3,7 @@ package bat.ke.qq.com.front.controller;
 import bat.ke.qq.com.common.pojo.Result;
 import bat.ke.qq.com.common.utils.ResultUtil;
 import bat.ke.qq.com.intercepter.MemberUtils;
+import bat.ke.qq.com.manager.dto.front.Member;
 import bat.ke.qq.com.manager.dto.front.Order;
 import bat.ke.qq.com.manager.dto.front.OrderInfo;
 import bat.ke.qq.com.manager.dto.front.PageOrder;
@@ -46,7 +47,8 @@ public class OrderController {
     @RequestMapping(value = "/member/addOrder",method = RequestMethod.POST)
     @ApiOperation(value = "创建订单")
     public Result<Object> addOrder(@RequestBody OrderInfo orderInfo){
-
+        Member member=MemberUtils.getMemberThreadLocal();
+        orderInfo.setUserId(member.getId().toString());
         Long orderId=orderService.createOrder(orderInfo);
         return new ResultUtil<Object>().setData(orderId.toString());
     }
