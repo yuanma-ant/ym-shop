@@ -1962,3 +1962,16 @@ INSERT INTO `tb_user` VALUES ('2', 'test', '098f6bcd4621d373cade4e832627b4f6', '
 -- ----------------------------
 -- Table structure for tb_seckill
 -- ----------------------------
+DROP TABLE IF EXISTS `tb_seckill`;
+CREATE TABLE `tb_seckill` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `item_id` bigint(20) DEFAULT NULL,
+  `seckill_desc` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `seckill_price` decimal(10,2) DEFAULT NULL,
+  `seckill_stock` int(11) DEFAULT NULL,
+  `startdate` datetime DEFAULT NULL,
+  `enddate` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
