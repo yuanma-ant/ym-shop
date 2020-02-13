@@ -223,11 +223,11 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    //todo ant 事务   分布式锁  扣库存
+    //todo ant 事务   锁  扣库存
     public Long createOrder(OrderInfo orderInfo) {
         //进入生成订单阶段，触发用户级别锁，
-        // 当前用户在提交订单过程中不运行并行对当前用户订单数据进行操作
-        //购物车流程中的数据修改都需要有用户锁
+        // 当前用户在提交订单过程中不允许并行对当前用户订单数据进行操作
+        // 购物车流程中的数据修改都需要有用户锁
         TbMember member=tbMemberMapper.selectByPrimaryKey(Long.valueOf(orderInfo.getUserId()));
         if(member==null){
             throw new YmshopException("获取下单用户失败");
@@ -259,14 +259,15 @@ public class OrderServiceImpl implements OrderService {
         }
 
         //扣减库存，使用商品级别锁,防止超卖
-        for (TbItem item : tbItems) {
-            RLock itemLock=redisson.getLock(item.getCid().toString());
+        for (CartProduct cartProduct : orderInfo.getGoodsList()) {
+            RLock itemLock=redisson.getLock(cartProduct.getProductId().toString());
             itemLock.lock();
-            TbItem tbItem = tbItemMapper.selectByPrimaryKey(item.getId());
+
+            TbItem tbItem = tbItemMapper.selectByPrimaryKey(cartProduct.getProductId());
             if (tbItem.getNum() < 0 || tbItem.getStatus() != 1) {
                 throw new YmshopException("下单出现异常，请刷新购物车重新提交");
             }
-            tbItem.setNum(tbItem.getNum()-1);
+            tbItem.setNum(tbItem.getNum()-Integer.parseInt(cartProduct.getProductNum().toString()));
             tbItemMapper.updateByPrimaryKey(tbItem);
             itemLock.unlock();
         }
